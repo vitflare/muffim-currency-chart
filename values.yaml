@@ -1,4 +1,4 @@
-replicaCount: 2
+replicaCount: 1
 
 image:
   repository: aadan1lov/muffin-currency
@@ -9,15 +9,6 @@ service:
   type: ClusterIP
   port: 8083
   targetPort: 8080
-
-ingress:
-  enabled: true
-  className: nginx
-  hosts:
-    - host: muffin.local
-      paths:
-        - path: /
-          pathType: Prefix
 
 containerPort: 8080
 
@@ -34,17 +25,3 @@ readinessProbe:
     port: 8080
   initialDelaySeconds: 2
   periodSeconds: 5
-
-resources: {}
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
